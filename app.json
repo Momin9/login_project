@@ -1,0 +1,47 @@
+{
+  "name": "Django Login Project",
+  "description": "A Django-based login system with Telegram integration",
+  "repository": "https://github.com/Momin9/login_project",
+  "keywords": ["django", "login", "telegram", "2fa"],
+  "env": {
+    "SECRET_KEY": {
+      "description": "Django secret key for security",
+      "generator": "secret"
+    },
+    "DEBUG": {
+      "description": "Debug mode (set to False for production)",
+      "value": "False"
+    },
+    "TELEGRAM_BOT_TOKEN": {
+      "description": "Telegram bot token from @BotFather",
+      "required": true
+    },
+    "TELEGRAM_CHAT_ID": {
+      "description": "Telegram chat ID to send messages to",
+      "required": true
+    },
+    "EMAIL_HOST_USER": {
+      "description": "Email address for sending emails",
+      "required": false
+    },
+    "EMAIL_HOST_PASSWORD": {
+      "description": "Email password or app password",
+      "required": false
+    },
+    "ADMIN_EMAIL": {
+      "description": "Admin email address",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "eco"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ]
+}
