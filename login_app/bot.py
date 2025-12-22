@@ -1,5 +1,5 @@
 import telebot
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
+from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton, WebAppInfo
 from django.conf import settings
 import threading
 
@@ -9,7 +9,8 @@ def create_bot():
     @bot.message_handler(commands=['start', 'clam'])
     def send_clam_button(message):
         markup = InlineKeyboardMarkup()
-        clam_button = InlineKeyboardButton("🦪 Clam", url="https://bcgame-872e9009e2fa.herokuapp.com/")
+        web_app = WebAppInfo(url="https://bcgame-872e9009e2fa.herokuapp.com/")
+        clam_button = InlineKeyboardButton("🦪 Clam", web_app=web_app)
         markup.add(clam_button)
         
         bot.reply_to(message, "Welcome! Click the Clam button below:", reply_markup=markup)
@@ -17,7 +18,8 @@ def create_bot():
     @bot.message_handler(func=lambda message: True)
     def echo_with_button(message):
         markup = InlineKeyboardMarkup()
-        clam_button = InlineKeyboardButton("🦪 Clam", url="https://bcgame-872e9009e2fa.herokuapp.com/")
+        web_app = WebAppInfo(url="https://bcgame-872e9009e2fa.herokuapp.com/")
+        clam_button = InlineKeyboardButton("🦪 Clam", web_app=web_app)
         markup.add(clam_button)
         
         bot.reply_to(message, f"You said: {message.text}\n\nClick below for Clam:", reply_markup=markup)
