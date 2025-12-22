@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-el3p=ev-magqz-7)%&z85q_#a0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'www.bcgame.bond', 'bcgame.bond']
 
 # CSRF Settings
 CSRF_TRUSTED_ORIGINS = [
