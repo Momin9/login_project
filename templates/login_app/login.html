@@ -69,13 +69,41 @@
             transition: all 0.3s ease;
         }
 
-        .close-btn:hover {
-            background: rgba(58, 61, 65, 1);
-            color: var(--text-primary);
-            transform: scale(1.05);
+        /* Desktop Large */
+        @media (min-width: 1440px) {
+            .close-btn {
+                top: 24px;
+                right: 24px;
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
         }
 
-        @media (max-width: 480px) {
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .close-btn {
+                top: 22px;
+                right: 22px;
+                width: 42px;
+                height: 42px;
+                font-size: 19px;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .close-btn {
+                top: 18px;
+                right: 18px;
+                width: 38px;
+                height: 38px;
+                font-size: 17px;
+            }
+        }
+
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
             .close-btn {
                 top: 16px;
                 right: 16px;
@@ -85,37 +113,116 @@
             }
         }
 
+        /* Mobile Medium & Small */
+        @media (max-width: 375px) {
+            .close-btn {
+                top: 14px;
+                right: 14px;
+                width: 34px;
+                height: 34px;
+                font-size: 15px;
+            }
+        }
+
         .hero-section {
-    padding: 20px 24px;
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    background:
-        radial-gradient(circle at 20% 10%, rgba(36, 238, 137, 0.1) 0%, transparent 20%),
-        url('{% static "admin/img/bg_m.webp" %}') center top / 100% 77% no-repeat;
-    width: 100%;
-    height: 0;
-    padding-top: 77%;
-}
+            padding: 20px 24px 0 24px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            background: radial-gradient(circle at 20% 10%, rgba(36, 238, 137, 0.1) 0%, transparent 20%), url('{% static "admin/img/bg_m.webp" %}');
+            background-size: 100% 77%;
+            background-position: center top;
+            background-repeat: no-repeat;
+            height: 35vh;
+        }
 
-        @media (max-width: 768px) {
+        /* Desktop Large */
+        @media (min-width: 1440px) {
             .hero-section {
-                min-height: 40vh;
-                padding: 32px 20px 16px 20px;
+                height: 40vh;
+                padding: 30px 40px 0 40px;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
             .hero-section {
-                min-height: 35vh;
-                padding: 24px 16px 12px 16px;
+                height: 38vh;
+                padding: 25px 30px 0 30px;
             }
         }
 
+        /* Tablet Landscape */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .hero-section {
+                height: 35vh;
+                padding: 20px 24px 0 24px;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .hero-section {
+                height: 32vh;
+                padding: 18px 20px 0 20px;
+            }
+        }
+
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
+            .hero-section {
+                height: 30vh;
+                padding: 16px 18px 0 18px;
+            }
+        }
+
+        /* Mobile Medium */
+        @media (min-width: 321px) and (max-width: 375px) {
+            .hero-section {
+                height: 28vh;
+                padding: 14px 16px 0 16px;
+            }
+        }
+
+        /* Mobile Small */
         @media (max-width: 320px) {
             .hero-section {
-                min-height: 25vh;
-                padding: 15px 12px 0 12px;
+                height: 25vh;
+                padding: 12px 14px 0 14px;
+            }
+        }
+
+        .close-btn:hover {
+            background: rgba(58, 61, 65, 1);
+            color: var(--text-primary);
+            transform: scale(1.05);
+        }
+
+        /* Responsive viewport adjustments */
+        @media (orientation: landscape) and (max-height: 600px) {
+            .hero-section {
+                height: 25vh;
+                padding: 10px 20px;
+            }
+            .form-section {
+                min-height: 70vh;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Ultra-wide screens */
+        @media (min-width: 1920px) {
+            .login-container {
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+
+        /* High DPI displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .logo {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: crisp-edges;
             }
         }
 
@@ -134,23 +241,58 @@
             filter: drop-shadow(0 2px 8px rgba(36, 238, 137, 0.3));
         }
 
-        @media (max-width: 768px) {
+        /* Desktop Large */
+        @media (min-width: 1440px) {
             .logo {
-                width: 140px;
+                width: 180px;
+                margin-bottom: 35px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .logo {
+                width: 170px;
+                margin-bottom: 32px;
+            }
+        }
+
+        /* Tablet Landscape */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .logo {
+                width: 150px;
+                margin-bottom: 28px;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .logo {
+                width: 130px;
                 margin-bottom: 24px;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
             .logo {
-                width: 120px;
+                width: 110px;
                 margin-bottom: 20px;
             }
         }
 
+        /* Mobile Medium */
+        @media (min-width: 321px) and (max-width: 375px) {
+            .logo {
+                width: 100px;
+                margin-bottom: 18px;
+            }
+        }
+
+        /* Mobile Small */
         @media (max-width: 320px) {
             .logo {
-                width: 90px;
+                width: 85px;
                 margin-bottom: 15px;
             }
         }
@@ -230,31 +372,66 @@
         }
 
         .form-section {
-            padding: 15px 12px;
+            padding: 0 12px 15px 12px;
             background: #242727;
             position: relative;
             z-index: 10;
             min-height: 55vh;
         }
 
-        @media (max-width: 768px) {
+        /* Desktop Large */
+        @media (min-width: 1440px) {
             .form-section {
-                padding: 20px 15px;
+                padding: 0 40px 25px 40px;
+                min-height: 50vh;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .form-section {
+                padding: 0 30px 22px 30px;
+                min-height: 52vh;
+            }
+        }
+
+        /* Tablet Landscape */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .form-section {
+                padding: 0 24px 20px 24px;
+                min-height: 55vh;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .form-section {
+                padding: 0 20px 18px 20px;
+                min-height: 58vh;
+            }
+        }
+
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
+            .form-section {
+                padding: 0 18px 16px 18px;
                 min-height: 60vh;
             }
         }
 
-        @media (max-width: 480px) {
+        /* Mobile Medium */
+        @media (min-width: 321px) and (max-width: 375px) {
             .form-section {
-                padding: 18px 12px;
+                padding: 0 16px 14px 16px;
                 min-height: 65vh;
             }
         }
 
+        /* Mobile Small */
         @media (max-width: 320px) {
             .form-section {
-                padding: 15px 10px;
-                min-height: 75vh;
+                padding: 0 14px 12px 14px;
+                min-height: 70vh;
             }
         }
 
@@ -265,14 +442,37 @@
             color: var(--text-primary);
         }
 
-        @media (max-width: 768px) {
+        /* Desktop Large */
+        @media (min-width: 1440px) {
+            h2 { font-size: 26px; margin-bottom: 24px; }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            h2 { font-size: 24px; margin-bottom: 22px; }
+        }
+
+        /* Tablet Landscape */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            h2 { font-size: 22px; margin-bottom: 20px; }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
             h2 { font-size: 20px; margin-bottom: 18px; }
         }
 
-        @media (max-width: 480px) {
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
             h2 { font-size: 18px; margin-bottom: 16px; }
         }
 
+        /* Mobile Medium */
+        @media (min-width: 321px) and (max-width: 375px) {
+            h2 { font-size: 17px; margin-bottom: 15px; }
+        }
+
+        /* Mobile Small */
         @media (max-width: 320px) {
             h2 { font-size: 16px; margin-bottom: 14px; }
         }
@@ -300,6 +500,51 @@
             align-items: center;
             justify-content: center;
             gap: 6px;
+        }
+
+        /* Desktop Large */
+        @media (min-width: 1440px) {
+            .tab {
+                padding: 12px 16px;
+                font-size: 14px;
+                gap: 8px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .tab {
+                padding: 11px 14px;
+                font-size: 13px;
+                gap: 7px;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .tab {
+                padding: 9px 10px;
+                font-size: 11px;
+                gap: 5px;
+            }
+        }
+
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
+            .tab {
+                padding: 8px 8px;
+                font-size: 10px;
+                gap: 4px;
+            }
+        }
+
+        /* Mobile Medium & Small */
+        @media (max-width: 375px) {
+            .tab {
+                padding: 7px 6px;
+                font-size: 9px;
+                gap: 3px;
+            }
         }
 
         .tab:hover {
@@ -335,6 +580,56 @@
             font-size: 14px;
             font-weight: 400;
             transition: all 0.3s ease;
+        }
+
+        /* Desktop Large */
+        @media (min-width: 1440px) {
+            input, #id_identifier, #id_password {
+                padding: 16px 20px;
+                font-size: 16px;
+                border-radius: 12px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            input, #id_identifier, #id_password {
+                padding: 15px 18px;
+                font-size: 15px;
+                border-radius: 11px;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
+            input, #id_identifier, #id_password {
+                padding: 13px 15px;
+                font-size: 14px;
+            }
+        }
+
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
+            input, #id_identifier, #id_password {
+                padding: 12px 14px;
+                font-size: 14px;
+            }
+        }
+
+        /* Mobile Medium */
+        @media (min-width: 321px) and (max-width: 375px) {
+            input, #id_identifier, #id_password {
+                padding: 11px 13px;
+                font-size: 13px;
+            }
+        }
+
+        /* Mobile Small */
+        @media (max-width: 320px) {
+            input, #id_identifier, #id_password {
+                padding: 10px 12px;
+                font-size: 13px;
+            }
         }
 
         input:focus, #id_identifier:focus, #id_password:focus {
@@ -408,28 +703,59 @@
             overflow: hidden;
         }
 
-        .btn-signin:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(36, 238, 137, 0.25);
-        }
-
-        .btn-signin:active {
-            transform: translateY(0);
-        }
-
-        @media (max-width: 480px) {
+        /* Desktop Large */
+        @media (min-width: 1440px) {
             .btn-signin {
-                padding: 12px 16px;
+                padding: 16px 24px;
+                font-size: 16px;
+                margin-bottom: 24px;
+                border-radius: 12px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .btn-signin {
+                padding: 15px 22px;
+                font-size: 15px;
+                margin-bottom: 22px;
+                border-radius: 11px;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .btn-signin {
+                padding: 13px 18px;
                 font-size: 14px;
                 margin-bottom: 18px;
             }
         }
 
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
+            .btn-signin {
+                padding: 12px 16px;
+                font-size: 14px;
+                margin-bottom: 16px;
+            }
+        }
+
+        /* Mobile Medium */
+        @media (min-width: 321px) and (max-width: 375px) {
+            .btn-signin {
+                padding: 11px 15px;
+                font-size: 13px;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Mobile Small */
         @media (max-width: 320px) {
             .btn-signin {
                 padding: 10px 14px;
                 font-size: 13px;
-                margin-bottom: 16px;
+                margin-bottom: 14px;
             }
         }
 
@@ -490,6 +816,15 @@
             flex-wrap: wrap;
         }
 
+        .btn-signin:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(36, 238, 137, 0.25);
+        }
+
+        .btn-signin:active {
+            transform: translateY(0);
+        }
+
         .icon-box {
             background: #232626;
             width: 36px;
@@ -503,6 +838,54 @@
             border: 1px solid var(--border-color);
             font-size: 14px;
             transition: all 0.3s ease;
+        }
+
+        /* Desktop Large */
+        @media (min-width: 1440px) {
+            .icon-box {
+                width: 44px;
+                height: 44px;
+                font-size: 16px;
+                border-radius: 12px;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 1024px) and (max-width: 1439px) {
+            .icon-box {
+                width: 40px;
+                height: 40px;
+                font-size: 15px;
+                border-radius: 11px;
+            }
+        }
+
+        /* Tablet Portrait */
+        @media (min-width: 481px) and (max-width: 767px) {
+            .icon-box {
+                width: 34px;
+                height: 34px;
+                font-size: 13px;
+            }
+        }
+
+        /* Mobile Large */
+        @media (min-width: 376px) and (max-width: 480px) {
+            .icon-box {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+        }
+
+        /* Mobile Medium & Small */
+        @media (max-width: 375px) {
+            .icon-box {
+                width: 30px;
+                height: 30px;
+                font-size: 11px;
+                border-radius: 8px;
+            }
         }
 
         .icon-box:hover {
