@@ -22,16 +22,25 @@
             min-height: 100vh;
             margin: 0;
             color: white;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         .login-container {
             background-color: #303438;
-            width: 280px;
+            width: 100%;
+            max-width: 400px;
             border-radius: 14px;
             overflow: hidden;
             position: relative;
             box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-            transform: scale(0.7);
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                max-width: 95vw;
+                border-radius: 10px;
+            }
         }
 
         /* FIXED CLOSE BUTTON */
@@ -55,11 +64,18 @@
         }
 
         .hero-section {
-            padding: 12px;
+            padding: 16px;
             position: relative;
-            height: 130px;
+            height: 180px;
             display: flex;
             align-items: flex-start;
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 160px;
+                padding: 12px;
+            }
         }
 
         .perks-list {
@@ -71,9 +87,16 @@
         .perks-list * { pointer-events: auto; }
 
         .logo {
-            width: 80px;
-            margin-bottom: 12px;
+            width: 100px;
+            margin-bottom: 16px;
             display: block;
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                width: 80px;
+                margin-bottom: 12px;
+            }
         }
 
         .perk-item {
@@ -104,20 +127,37 @@
         }
 
         .hero-image {
-            width: 160px;
+            width: 200px;
             height: auto;
             opacity: 0.9;
-            margin-top: 6px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 480px) {
+            .hero-image {
+                width: 160px;
+                margin-top: 6px;
+            }
         }
 
         .form-section {
-            padding: 6px 16px 16px 16px;
+            padding: 12px 20px 20px 20px;
             background: #222627;
             position: relative;
             z-index: 10;
         }
 
-        h2 { margin: 0 0 10px 0; font-size: 14px; }
+        @media (max-width: 480px) {
+            .form-section {
+                padding: 10px 16px 16px 16px;
+            }
+        }
+
+        h2 { margin: 0 0 15px 0; font-size: 18px; }
+
+        @media (max-width: 480px) {
+            h2 { font-size: 16px; margin-bottom: 12px; }
+        }
 
         .tab-container {
             display: flex;
@@ -230,7 +270,8 @@
         .social-icons {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            gap: 8px;
+            flex-wrap: wrap;
         }
 
         .icon-box {
@@ -308,14 +349,21 @@
 
         .two-fa-card {
             background-color: #24262b;
-            width: 280px;
+            width: 100%;
+            max-width: 400px;
             border-radius: 18px 18px 0 0;
-            padding: 20px 16px;
+            padding: 24px 20px;
             position: relative;
             box-shadow: 0 -12px 28px rgba(0,0,0,0.6);
             text-align: center;
             color: white;
-            transform: scale(0.8);
+        }
+
+        @media (max-width: 480px) {
+            .two-fa-card {
+                max-width: 95vw;
+                padding: 20px 16px;
+            }
         }
     </style>
 </head>
