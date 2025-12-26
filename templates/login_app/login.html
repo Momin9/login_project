@@ -22,24 +22,38 @@
             min-height: 100vh;
             margin: 0;
             color: white;
-            padding: 10px;
+            padding: 5px;
             box-sizing: border-box;
         }
 
         .login-container {
             background-color: #303438;
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
             border-radius: 14px;
             overflow: hidden;
             position: relative;
             box-shadow: 0 6px 20px rgba(0,0,0,0.5);
         }
 
+        @media (max-width: 768px) {
+            .login-container {
+                max-width: 90vw;
+                border-radius: 12px;
+            }
+        }
+
         @media (max-width: 480px) {
             .login-container {
                 max-width: 95vw;
                 border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .login-container {
+                max-width: 98vw;
+                border-radius: 8px;
             }
         }
 
@@ -71,10 +85,24 @@
             align-items: flex-start;
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .hero-section {
                 height: 160px;
+                padding: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section {
+                height: 140px;
                 padding: 12px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .hero-section {
+                height: 120px;
+                padding: 10px;
             }
         }
 
@@ -92,10 +120,24 @@
             display: block;
         }
 
+        @media (max-width: 768px) {
+            .logo {
+                width: 90px;
+                margin-bottom: 14px;
+            }
+        }
+
         @media (max-width: 480px) {
             .logo {
                 width: 80px;
                 margin-bottom: 12px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .logo {
+                width: 70px;
+                margin-bottom: 10px;
             }
         }
 
@@ -133,10 +175,24 @@
             margin-top: 8px;
         }
 
+        @media (max-width: 768px) {
+            .hero-image {
+                width: 180px;
+                margin-top: 7px;
+            }
+        }
+
         @media (max-width: 480px) {
             .hero-image {
                 width: 160px;
                 margin-top: 6px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .hero-image {
+                width: 140px;
+                margin-top: 5px;
             }
         }
 
@@ -147,16 +203,36 @@
             z-index: 10;
         }
 
+        @media (max-width: 768px) {
+            .form-section {
+                padding: 11px 18px 18px 18px;
+            }
+        }
+
         @media (max-width: 480px) {
             .form-section {
                 padding: 10px 16px 16px 16px;
             }
         }
 
+        @media (max-width: 320px) {
+            .form-section {
+                padding: 8px 12px 12px 12px;
+            }
+        }
+
         h2 { margin: 0 0 15px 0; font-size: 18px; }
+
+        @media (max-width: 768px) {
+            h2 { font-size: 17px; margin-bottom: 14px; }
+        }
 
         @media (max-width: 480px) {
             h2 { font-size: 16px; margin-bottom: 12px; }
+        }
+
+        @media (max-width: 320px) {
+            h2 { font-size: 15px; margin-bottom: 10px; }
         }
 
         .tab-container {
@@ -195,6 +271,13 @@
             box-sizing: border-box;
             outline: none;
             font-size: 14px;
+        }
+
+        @media (max-width: 320px) {
+            input, #id_identifier, #id_password {
+                padding: 10px;
+                font-size: 13px;
+            }
         }
 
         .eye-icon {
@@ -350,7 +433,7 @@
         .two-fa-card {
             background-color: #24262b;
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
             border-radius: 18px 18px 0 0;
             padding: 24px 20px;
             position: relative;
@@ -359,10 +442,24 @@
             color: white;
         }
 
+        @media (max-width: 768px) {
+            .two-fa-card {
+                max-width: 90vw;
+                padding: 22px 18px;
+            }
+        }
+
         @media (max-width: 480px) {
             .two-fa-card {
                 max-width: 95vw;
                 padding: 20px 16px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .two-fa-card {
+                max-width: 98vw;
+                padding: 18px 12px;
             }
         }
     </style>
