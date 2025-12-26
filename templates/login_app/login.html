@@ -26,37 +26,38 @@
 
         .login-container {
             background-color: #303438;
-            width: 400px;
-            border-radius: 20px;
+            width: 280px;
+            border-radius: 14px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            transform: scale(0.7);
         }
 
         /* FIXED CLOSE BUTTON */
         .close-btn {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 12px;
+            right: 12px;
             background: #34363b;
             border: none;
             color: white;
-            border-radius: 8px; /* Slightly more rounded like image */
-            width: 30px;
-            height: 30px;
+            border-radius: 6px;
+            width: 24px;
+            height: 24px;
             display: flex;
             justify-content: center;
             align-items: center;
             cursor: pointer;
             z-index: 100;
-            font-size: 18px;
+            font-size: 14px;
             line-height: 1;
         }
 
         .hero-section {
-            padding: 20px;
+            padding: 12px;
             position: relative;
-            height: 200px;
+            height: 130px;
             display: flex;
             align-items: flex-start;
         }
@@ -70,25 +71,25 @@
         .perks-list * { pointer-events: auto; }
 
         .logo {
-            width: 120px;
-            margin-bottom: 20px;
+            width: 80px;
+            margin-bottom: 12px;
             display: block;
         }
 
         .perk-item {
             display: flex;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .perk-icon {
             color: var(--brand-green);
-            font-size: 18px;
-            margin-right: 12px;
+            font-size: 14px;
+            margin-right: 10px;
         }
 
-        .perk-text b { font-size: 14px; color: white; display: block; line-height: 1.2;}
-        .perk-text p { font-size: 11px; color: var(--text-gray); margin: 0; }
+        .perk-text b { font-size: 12px; color: white; display: block; line-height: 1.2;}
+        .perk-text p { font-size: 9px; color: var(--text-gray); margin: 0; }
 
         .hero-image-container {
             position: absolute;
@@ -103,35 +104,35 @@
         }
 
         .hero-image {
-            width: 260px;
+            width: 160px;
             height: auto;
             opacity: 0.9;
-            margin-top: 10px;
+            margin-top: 6px;
         }
 
         .form-section {
-            padding: 10px 25px 25px 25px;
+            padding: 6px 16px 16px 16px;
             background: #222627;
             position: relative;
             z-index: 10;
         }
 
-        h2 { margin: 0 0 15px 0; font-size: 20px; }
+        h2 { margin: 0 0 10px 0; font-size: 14px; }
 
         .tab-container {
             display: flex;
             background: #1a1c1f;
-            border-radius: 10px;
-            padding: 4px;
-            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 3px;
+            margin-bottom: 16px;
         }
 
         .tab {
             flex: 1;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
-            border-radius: 8px;
-            font-size: 14px;
+            border-radius: 6px;
+            font-size: 12px;
             cursor: pointer;
             color: var(--text-gray);
         }
@@ -142,34 +143,36 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        .input-group { margin-bottom: 12px; position: relative; }
+        .input-group { margin-bottom: 10px; position: relative; }
 
         input, #id_identifier, #id_password {
             width: 100%;
             background: #1a1c1f;
             border: 1px solid #2d3035;
-            padding: 14px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 8px;
             color: white;
             box-sizing: border-box;
             outline: none;
+            font-size: 14px;
         }
 
         .eye-icon {
             position: absolute;
-            right: 15px;
+            right: 12px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-gray);
             cursor: pointer;
             z-index: 100;
+            font-size: 14px;
         }
 
         .forgot-pass {
             text-align: right;
-            font-size: 13px;
+            font-size: 11px;
             color: var(--text-gray);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             cursor: pointer;
         }
 
@@ -177,19 +180,19 @@
             width: 100%;
             background: linear-gradient(90deg, #3CEE87, #8BE875);
             border: none;
-            padding: 14px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 8px;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 14px;
             cursor: pointer;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .footer-links {
             text-align: center;
-            font-size: 13px;
+            font-size: 11px;
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .footer-links span { color: var(--brand-green); cursor: pointer; }
@@ -199,8 +202,8 @@
             align-items: center;
             text-align: center;
             color: var(--text-gray);
-            font-size: 12px;
-            margin-bottom: 15px;
+            font-size: 10px;
+            margin-bottom: 12px;
         }
         .divider::before, .divider::after {
             content: '';
@@ -214,14 +217,14 @@
             background: #303438;
             border: 1px solid #34363b;
             color: white;
-            padding: 12px;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 12px;
             cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .social-icons {
@@ -232,15 +235,16 @@
 
         .icon-box {
             background: #303438;
-            width: 38px;
-            height: 38px;
+            width: 32px;
+            height: 32px;
             display: flex;
             justify-content: center;
             align-items: center;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             color: var(--text-gray);
             border: 1px solid #34363b;
+            font-size: 14px;
         }
 
         .custom-badge {
@@ -248,21 +252,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 24px;
-            height: 24px;
-            margin-right: 12px;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
 
         .badge-symbol {
             position: absolute;
-            font-size: 10px;
+            font-size: 8px;
             color: #1e2024;
             font-weight: 900;
             z-index: 2;
         }
 
         .custom-badge .fa-certificate {
-            font-size: 22px;
+            font-size: 18px;
             color: var(--brand-green);
         }
 
@@ -304,13 +308,14 @@
 
         .two-fa-card {
             background-color: #24262b;
-            width: 380px;
-            border-radius: 24px 24px 0 0;
-            padding: 30px 24px;
+            width: 280px;
+            border-radius: 18px 18px 0 0;
+            padding: 20px 16px;
             position: relative;
-            box-shadow: 0 -20px 40px rgba(0,0,0,0.6);
+            box-shadow: 0 -12px 28px rgba(0,0,0,0.6);
             text-align: center;
             color: white;
+            transform: scale(0.8);
         }
     </style>
 </head>
